@@ -1,4 +1,4 @@
-# MQDynamicMenu
+# MQDynamicsMenu
 
 Easy to user generic menu view has been created using UIKit Dynamics with effects gravity, elasticity and acceleration.
 https://developer.apple.com/documentation/uikit/uidynamicitembehavior?language=objc
