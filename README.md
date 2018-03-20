@@ -22,4 +22,4 @@ MQMenuComponentProtocol
 
 
 
-![ScreenShot](https://raw.github.com/MubeenQazi/MQDynamicMenu/master/SS1.PNG)
+![Screen Shot](SS1.png?raw=true "")
