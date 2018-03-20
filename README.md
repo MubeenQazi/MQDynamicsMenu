@@ -11,7 +11,7 @@ menuComponent.menuBackgroundColor = [UIColor colorWithRed:0.95 green:0.54 blue:0
 menuComponent.acceleration = 20;
 menuComponent.optionCellHeight = 60;
 menuComponent.title = @"Dynamics Demo";
-menuComponent.elasticity = 0.1;
+menuComponent.elasticity = 0.1;  
 
 # Protocol
 MQMenuComponentProtocol
