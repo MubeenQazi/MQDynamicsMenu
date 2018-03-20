@@ -35,7 +35,7 @@
     self.menuComponent.acceleration = 20;
     self.menuComponent.optionCellHeight = 60;
     self.menuComponent.title = @"Dynamics Menu Demo";
-    self.menuComponent.elasticity = 0.1;
+    self.menuComponent.elasticity = 0.;
 }
 
 
