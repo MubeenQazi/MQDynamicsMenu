@@ -16,7 +16,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MQ DYNAMIC MENU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUN-1B-uWs">
+                                <rect key="frame" x="85" y="40" width="205" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to right to open menu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEd-7u-jxc">
+                                <rect key="frame" x="65" y="311.5" width="245" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZEd-7u-jxc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Zcy-ws-vtA"/>
+                            <constraint firstItem="FUN-1B-uWs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dGk-k2-fkY"/>
+                            <constraint firstItem="FUN-1B-uWs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kQc-kK-5Yt"/>
+                            <constraint firstItem="ZEd-7u-jxc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="v6d-V7-uCa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
@@ -24,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="482" y="119"/>
+            <point key="canvasLocation" x="480.80000000000001" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>
