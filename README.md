@@ -12,4 +12,4 @@ self.menuComponent.acceleration = 20;
 self.menuComponent.elasticity = 0.3;
 
 
-![Screen Shot](SS1.PNG "")
+![Screen Shot](SS1.png?raw=true "")
