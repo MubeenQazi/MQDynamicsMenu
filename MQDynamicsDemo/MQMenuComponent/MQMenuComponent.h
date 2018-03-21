@@ -14,26 +14,10 @@ typedef enum MQMenuDirectionTypes{
     rightToLeft,
 } MenuDirectionOptions;
 
-@protocol MQMenuComponentProtocol <NSObject>
+@interface MQMenuComponent : NSObject
 
-- (void)didSelectRowAtIndexPath:(NSIndexPath*)indexPath;
-
-@end
-
-
-@interface MQMenuComponent : NSObject <UITableViewDelegate,UITableViewDataSource>
-
-@property (nonatomic, strong) UIColor *menuBackgroundColor;
-@property (nonatomic, strong) NSMutableDictionary *tableSettings;
 @property (nonatomic) CGFloat elasticity;
-@property (nonatomic) CGFloat optionCellHeight;
 @property (nonatomic) CGFloat acceleration;
-@property (nonatomic) BOOL isScrollable;
-@property (nonatomic) BOOL showSeparator;
-//@property (nonatomic, strong) NSString *title;
-@property (nonatomic,weak) id <MQMenuComponentProtocol> delegate;
-
-- (id)initMenuWithFrame:(CGRect)frame targetView:(UIView *)targetView direction:(MenuDirectionOptions)direction options:(NSArray *)options optionImages:(NSArray *)optionImages;
 
 - (id)initWithMenuViewController:(UIViewController*)targetViewController menuView:(UIView*)menuView direction:(MenuDirectionOptions)direction;
 

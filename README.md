@@ -1,28 +1,15 @@
 # MQDynamicsMenu
 
-Easy to user generic menu view has been created using UIKit Dynamics with effects gravity, elasticity and acceleration.
+UIKit Dynamic effect on menu views. Just have to pass menu view to MQMenuComponent and thats it.
 https://developer.apple.com/documentation/uikit/uidynamicitembehavior?language=objc
 Check demo project for reference.
 How to use:
 
-MQMenuComponent *menuComponent = [[MQMenuComponent alloc] initMenuWithFrame:desiredMenuFrame targetView:self.view direction:leftToRight options:menuItems optionImages:menuItemImages];
+MQMenuComponent *menuComponent = [[MQMenuComponent alloc]initWithMenuViewController:self menuView:menuView direction:leftToRight];
 
-menuComponent.delegate = self;
+self.menuComponent.acceleration = 20;
 
-menuComponent.menuBackgroundColor = [UIColor colorWithRed:0.95 green:0.54 blue:0.54 alpha:1.0];
-
-menuComponent.acceleration = 20;
-
-menuComponent.title = @"Dynamics Demo";
+self.menuComponent.elasticity = 0.3;
 
 
-# Protocol
-MQMenuComponentProtocol
-
-
-# Callback:
-- (void) didSelectRowAtIndexPath:(NSIndexPath*)indexPath;
-
-
-
-![Screen Shot](SS1.png?raw=true "")
+![Screen Shot](SS1.PNG "")

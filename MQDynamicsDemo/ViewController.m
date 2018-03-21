@@ -11,6 +11,8 @@
 @interface ViewController (){
     
     __weak IBOutlet UIView *menuView;
+    NSArray *menuItems;
+    NSArray *menuItemImages;
 }
 
 @end
@@ -22,25 +24,10 @@
     
     [self addSwipeGesture];
     
-//    CGRect desiredMenuFrame = CGRectMake(0.0, 0.0, self.view.center.x, self.view.frame.size.height);
-//
-//    NSArray *menuItems = @[@"Home", @"Notification", @"E-mail", @"Settings", @"About"];
-//
-//    NSArray *menuItemImages = @[@"home", @"home", @"home", @"home", @"home"];
-//
-//    self.menuComponent = [[MQMenuComponent alloc] initMenuWithFrame:desiredMenuFrame
-//                                                       targetView:self.view
-//                                                        direction:leftToRight
-//                                                          options:menuItems
-//                                                     optionImages:menuItemImages];
-//    
-//    self.menuComponent.menuBackgroundColor = [UIColor colorWithRed:0.95 green:0.54 blue:0.54 alpha:1.0];
-//    self.menuComponent.optionCellHeight = 60;
-    //self.menuComponent.title = @"Dynamics Menu Demo";
+    menuItems = @[@"Home", @"Notification", @"E-mail", @"Settings", @"About"];
+    menuItemImages = @[@"home", @"home", @"home", @"home", @"home"];
     
     self.menuComponent = [[MQMenuComponent alloc]initWithMenuViewController:self menuView:menuView direction:leftToRight];
-    
-    self.menuComponent.delegate = self;
     
     self.menuComponent.acceleration = 20;
     
@@ -64,6 +51,42 @@
 - (void)showMenu:(UIGestureRecognizer *)gestureRecognizer{
     [self.menuComponent showMenu];
 }
+
+
+#pragma mark - Table View Delegate and Datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [menuItems count];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"optionCell"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"optionCell"];
+    }
+    cell.textLabel.text = [menuItems objectAtIndex:indexPath.row];
+    
+    [cell.imageView setImage:[UIImage imageNamed:[menuItemImages objectAtIndex:indexPath.row]]];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [cell.imageView setTintColor:[UIColor whiteColor]];
+    
+    [cell setBackgroundColor:[UIColor clearColor]];
+    
+    return cell;
+}
+
 
 
 

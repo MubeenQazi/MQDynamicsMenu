@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MQMenuComponent.h"
 
-@interface ViewController : UIViewController<MQMenuComponentProtocol>
+@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) MQMenuComponent *menuComponent;
 
