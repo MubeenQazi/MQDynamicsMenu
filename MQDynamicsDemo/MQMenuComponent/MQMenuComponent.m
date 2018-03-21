@@ -102,12 +102,6 @@
         
         [self setupMenuView];
         
-        [self setupOptionsTableView];
-        
-        [self setupTitleView];
-        
-        [self setInitialTableViewSettings];
-        
         [self setupSwipeGestureRecognizer];
         
         self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.targetView];
@@ -126,21 +120,40 @@
 }
 
 
-- (void)setupTitleView{
-    self.titleView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 20, self.menuFrame.size.width, 100)];
-    self.titleView.backgroundColor = [UIColor clearColor];
-    self.titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, self.titleView.frame.size.width, self.titleView.frame.size.height)];
-    self.titleLbl.text = @"MQMenu";
-    [self.titleLbl setTextAlignment:NSTextAlignmentCenter];
-    [self.titleView addSubview:self.titleLbl];
-    [self.menuView addSubview:self.titleView];
-}
-
--(void)setTitle:(NSString *)title{
-    self.titleLbl.text = title;
+- (id)initWithMenuViewController:(UIViewController*)targetViewController menuView:(UIView*)menuView direction:(MenuDirectionOptions)direction{
+    if (self = [super init]) {
+        
+        self.targetView = targetViewController.view;
+        
+        self.menuFrame = menuView.frame;
+        
+        self.menuDirection = direction;
+        
+        //[self setupBackgroundView];
+        
+        self.menuView = menuView;
+        
+        //[self setupMenuView];
+        
+        [self setupSwipeGestureRecognizer];
+        
+        self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.targetView];
+        
+        self.optionCellHeight = 50.0;
+        
+        self.elasticity = 0.3;
+        
+        self.acceleration = 15.0;
+        
+        self.isMenuShown = NO;
+        
+    }
+    
+    return self;
 }
 
 - (void)setupMenuView {
+    
     if (self.menuDirection == leftToRight) {
         self.menuInitialFrame = CGRectMake(-self.menuFrame.size.width,
                                            self.menuFrame.origin.y,
@@ -154,57 +167,18 @@
                                            self.menuFrame.size.height);
     }
     
-    self.menuView = [[UIView alloc] initWithFrame:self.menuInitialFrame];
-    [self.menuView setBackgroundColor:[UIColor greenColor]];
-    [self.targetView addSubview:self.menuView];
-}
-
-- (void)setMenuBackgroundColor:(UIColor *)menuBackgroundColor{
-    [self.menuView setBackgroundColor:menuBackgroundColor];
-}
-
-- (void)setShowSeparator:(BOOL)showSeparator{
-    if(showSeparator)
-        [self.optionsTableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
-    else
-        [self.optionsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-}
-
--(void)setIsScrollable:(BOOL)isScrollable{
-    if(isScrollable)
-        [self.optionsTableView setScrollEnabled:YES];
-    else
-        [self.optionsTableView setScrollEnabled:NO];
+    [self.menuView setFrame: self.menuInitialFrame];
+    
+//    [self.menuView setBackgroundColor:[UIColor greenColor]];
+//    [self.targetView addSubview:self.menuView];
 }
 
 
 - (void)setupBackgroundView {
-    self.backgroundView = [[UIView alloc] initWithFrame:self.targetView.frame];
+    self.backgroundView = [[UIView alloc]initWithFrame:self.targetView.frame];
     [self.backgroundView setBackgroundColor:[UIColor darkGrayColor]];
     [self.backgroundView setAlpha:0.0];
     [self.targetView addSubview:self.backgroundView];
-}
-
-- (void)setupOptionsTableView {
-    self.optionsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0.0, 120, self.menuFrame.size.width, self.menuFrame.size.height-120) style:UITableViewStylePlain];
-    [self.optionsTableView setBackgroundColor:[UIColor clearColor]];
-    [self.optionsTableView setScrollEnabled:NO];
-    [self.optionsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    self.optionsTableView.tableFooterView = [UIView new];
-    [self.menuView addSubview:self.optionsTableView];
-    
-    [self.optionsTableView setDelegate:self];
-    [self.optionsTableView setDataSource:self];
-}
-
-
-- (void)setInitialTableViewSettings {
-    self.tableSettings = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                          [UIFont fontWithName:@"American Typewriter" size:15.0], @"font",
-                          [NSNumber numberWithInt:NSTextAlignmentLeft], @"textAlignment",
-                          [UIColor blackColor], @"textColor",
-                          [NSNumber numberWithInt:UITableViewCellSelectionStyleGray], @"selectionStyle",
-                          nil];
 }
 
 - (void)setupSwipeGestureRecognizer {
@@ -232,8 +206,6 @@
 
 
 - (void)toggleMenu{
-    
-    
     [self.animator removeAllBehaviors];
     
     CGFloat gravityDirectionX;

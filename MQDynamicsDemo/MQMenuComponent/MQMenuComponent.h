@@ -30,10 +30,12 @@ typedef enum MQMenuDirectionTypes{
 @property (nonatomic) CGFloat acceleration;
 @property (nonatomic) BOOL isScrollable;
 @property (nonatomic) BOOL showSeparator;
-@property (nonatomic, strong) NSString *title;
+//@property (nonatomic, strong) NSString *title;
 @property (nonatomic,weak) id <MQMenuComponentProtocol> delegate;
 
 - (id)initMenuWithFrame:(CGRect)frame targetView:(UIView *)targetView direction:(MenuDirectionOptions)direction options:(NSArray *)options optionImages:(NSArray *)optionImages;
+
+- (id)initWithMenuViewController:(UIViewController*)targetViewController menuView:(UIView*)menuView direction:(MenuDirectionOptions)direction;
 
 - (void)showMenu;
 

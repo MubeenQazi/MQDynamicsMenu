@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,18 +30,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jx4-sJ-hsI">
+                                <rect key="frame" x="-187.5" y="0.0" width="187.5" height="667"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.63529411759999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Jx4-sJ-hsI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9bZ-hj-ekB"/>
+                            <constraint firstItem="Jx4-sJ-hsI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="LWz-0n-RGN"/>
+                            <constraint firstItem="Jx4-sJ-hsI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-187.5" id="ZLb-Kv-Hzf"/>
                             <constraint firstItem="ZEd-7u-jxc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Zcy-ws-vtA"/>
                             <constraint firstItem="FUN-1B-uWs" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dGk-k2-fkY"/>
                             <constraint firstItem="FUN-1B-uWs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kQc-kK-5Yt"/>
+                            <constraint firstItem="Jx4-sJ-hsI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="tuj-oP-eYS"/>
                             <constraint firstItem="ZEd-7u-jxc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="v6d-V7-uCa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="menuView" destination="Jx4-sJ-hsI" id="AEE-MW-vCr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
