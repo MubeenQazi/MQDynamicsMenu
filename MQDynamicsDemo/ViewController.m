@@ -38,7 +38,7 @@
 //    self.menuComponent.optionCellHeight = 60;
     //self.menuComponent.title = @"Dynamics Menu Demo";
     
-    self.menuComponent = [[MQMenuComponent alloc]initWithMenuViewController:self menuView:menuView direction:rightToLeft];
+    self.menuComponent = [[MQMenuComponent alloc]initWithMenuViewController:self menuView:menuView direction:leftToRight];
     
     self.menuComponent.delegate = self;
     
