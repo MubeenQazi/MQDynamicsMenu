@@ -1,9 +1,12 @@
 # MQDynamicsMenu
 
 UIKit Dynamic effect on menu views. Just have to pass menu view to MQMenuComponent and thats it.
+
 https://developer.apple.com/documentation/uikit/uidynamicitembehavior?language=objc
+
 Check demo project for reference.
-How to use:
+
+# How to use:
 
 MQMenuComponent *menuComponent = [[MQMenuComponent alloc]initWithMenuViewController:self menuView:menuView direction:leftToRight];
 
